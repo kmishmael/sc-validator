@@ -1,11 +1,20 @@
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
-import styles from './page.module.css'
 import { UrlBox } from '@sc-validator/components/urlBox'
+import { useState } from 'react'
+import { metaData } from '@sc-validator/types'
+import { TwitterCard } from '@sc-validator/components/twitter'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const [meta, setMeta] = useState<metaData>();
+
+  function handleMeta(metags: metaData){
+    console.log(metags);
+    setMeta(metags);
+  }
   return (
     <>
     <main>
@@ -20,7 +29,10 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <UrlBox />
+      <UrlBox handleMeta={handleMeta} />
+      <div className='my-10'>
+      <TwitterCard /*meta={meta} *//>
+      </div>
     </main>
     </>
   )
