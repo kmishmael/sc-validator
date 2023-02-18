@@ -10,6 +10,9 @@ export default function Layout({ children }: {children: React.ReactNode}) {
         <>
         <Heading/>
         {children}
+        <div className="h-36">
+
+        </div>
         <Footer />
         </>
     )

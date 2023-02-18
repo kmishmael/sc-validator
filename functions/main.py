@@ -1,19 +1,35 @@
+from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
 import json
 
 def urlParser(request):
+
+    print(request)
     
     request_args = request.args
 
+    print(request.args)
+
     if request_args and "url" in request_args:
-        url = request_args["name"]
+        url = request_args["url"]
     else:
         return 'No paramater passed.'
     
+    url_host = urlparse(url).netloc
+    
     html = requests.get(url)
-
+    
+    if (html.status_code != 200):
+            return json.dumps({
+            'status': html.status_code,
+            'url': url,
+            'url_host': url_host,
+            }), 400, {'Content-Type': 'application/json'}
+    
     soup = BeautifulSoup(html.content, 'html.parser')
+
+    number_of_tags = len(soup.findAll('meta'))
 
     title = soup.find("meta", {"name": "title"})
     title = title["content"] if title else None
@@ -49,9 +65,13 @@ def urlParser(request):
     graph_image = graph_image["content"] if graph_image else None
 
     graph_description = soup.find("meta", {"property": "og:description"})
-    graph_description: graph_description["content"] if graph_description else None
+    graph_description = graph_description["content"] if graph_description else None
 
     data = {
+        'status': html.status_code,
+        'no_of_tags': number_of_tags,
+        'url': url,
+        'url_host': url_host,
         'title':  title,
         'description': description,
         'twitter_card': twitter_card,

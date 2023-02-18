@@ -4,8 +4,9 @@ export default function Document() {
     return (
         <Html>
             <Head>
+            <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
             </Head>
-            <body className='flex flex-col min-h-screen'>
+            <body className='flex flex-col duration-200 ease-in transition-all' style={{transition: 'background-color'}}>
                 <Main />
                 <NextScript />
             </body>

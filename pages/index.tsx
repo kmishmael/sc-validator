@@ -1,39 +1,23 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import { UrlBox } from '@sc-validator/components/urlBox'
-import { useState } from 'react'
-import { metaData } from '@sc-validator/types'
-import { TwitterCard } from '@sc-validator/components/twitter'
+import Link from 'next/link';
+import { useEffect } from 'react';
 
-const inter = Inter({ subsets: ['latin'] })
+export default function Page() {
 
-export default function Home() {
 
-  const [meta, setMeta] = useState<metaData>();
-
-  function handleMeta(metags: metaData){
-    console.log(metags);
-    setMeta(metags);
-  }
-  return (
-    <>
-    <main>
-      {/*style={{backgroundColor: '#0277bd'}}*/}
-      <div className='h-screen-1/2 bg-gray-200 h-92 text-center flex flex-col justify-center py-6'>
-        <div className='py-9'>
-          <p className='font-bold text-4xl'>Simple Social Card Validator</p>
+    return (
+        <>
+        <div className="flex flex-row justify-center text-center mt-24 mx-2 py-4">
+        <p className="text-8xl py-4 font-bold"><span className="text-light-social">Cross Platform Link Sharing Card</span> <span className="text-deep-purple">Validator</span></p>
         </div>
-        <div className='pb-12 pt-6 w-full text-center'>
-          <p className='w-2/3 mx-auto text-xl text-gray-600'>Sc card validator is a social media url share validator. Have a glance at how your links will look 
-            like when shared on social media, with support for multiple platforms
-          </p>
+        <div className="mx-2 flex justify-center text-center mt-16 gap-8">
+            <Link href={'/twitter-validator'}>
+            <button className="group flex bg-gray-300 text-deep-purple hover:bg-purple-200 py-2 justify-center gap-2 align-middle ease-in duration-200 transition-all px-6 rounded-lg">Twitter Validator <span className="scale-0 text-lg translate-x-4 transition-all duration-200 opacity-0 group-hover:block group-hover:scale-100 group-hover:opacity-100 group-hover:translate-x-0"><i className="ri-arrow-right-line"></i></span></button>
+            </Link>
+            <Link href={''}>
+            <button className="bg-gray-300 text-deep-purple hover:bg-purple-200 py-2 px-6 rounded-lg">Share on Twitter</button>
+            </Link>
+
         </div>
-      </div>
-      <UrlBox handleMeta={handleMeta} />
-      <div className='my-10'>
-      <TwitterCard /*meta={meta} *//>
-      </div>
-    </main>
-    </>
-  )
+        </>
+    )
 }

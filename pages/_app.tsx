@@ -2,6 +2,7 @@ import '@sc-validator/styles/global.css';
 import Layout from '@sc-validator/components/Layout';
 import { AppProps } from "next/app";
 import Head from 'next/head';
+import { ThemeProvider } from 'next-themes';
 
 export default function App({Component, pageProps}: AppProps){
     return (
@@ -19,9 +20,11 @@ export default function App({Component, pageProps}: AppProps){
             <link rel="manifest" href="/manifest.json" />
 
         </Head>
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
+        <ThemeProvider enableSystem={true} attribute="class">
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </ThemeProvider>
         </>
     )
 }
