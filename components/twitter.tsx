@@ -162,7 +162,7 @@ export function TwitterCard({meta}: {meta: metaData}){
                     </div>
             ) : (
             <>
-            <p>No imageURL FOUND</p>
+            <p>No image URL Found. </p>
             </>) }
                     </>)
                 }

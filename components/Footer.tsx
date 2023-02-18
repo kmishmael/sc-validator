@@ -21,7 +21,7 @@ export function Footer(){
                 </ul>
             </div>
             <div className="flex justify-center gap-2 mt-2">
-                <p>Social Card Validator</p>
+                <p>Social Validator</p>
                 <p>&copy; 2023 All rights reserved</p>
             </div>
         </footer>
