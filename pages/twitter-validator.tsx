@@ -7,6 +7,7 @@ import { TwitterCard } from '@sc-validator/components/twitter'
 import { Logs } from '@sc-validator/components/log'
 import { isValidUrl } from '@sc-validator/lib/urlParser'
 import { useRouter } from 'next/router'
+import { NextSeo } from 'next-seo'
 
 type log = {
   isError: boolean;
@@ -34,7 +35,7 @@ export default function Home() {
   const [isTwitter, setIsTwitter] = useState<boolean>();
   const [isCardDataReady, setIsCardDataReady] = useState<boolean>();
   const [loading, setLoading] = useState<boolean>(false);
-  const { push } = useRouter()
+  const { push, asPath } = useRouter()
 
   const scrollToCard = () => {
     push("#card")
@@ -74,10 +75,7 @@ export default function Home() {
           prev.push({isError: false, logText: 'Page Fetched successfully'})
           return prev
         })
-        /*
-        setIsAccess(true)
-        setTagsFound(true)
-*/
+
         if(res.no_of_tags && res.no_of_tags != null){
           setLogs(prev => {
             prev.push({isError: false, logText: `${res.no_of_tags} metatags were found`})
@@ -133,6 +131,30 @@ export default function Home() {
 
   return (
     <>
+    <NextSeo 
+        title="Twitter Card Validator and Preview"
+        description="Preview how your content will look when it's shared as Twitter cards and validate any issues with Meta and your Open Graph tags."
+        canonical={`https://socialvalidator.com${asPath}`}
+        openGraph={{
+          url: `https://socialvalidator.com${asPath}`,
+          title: 'Twitter Card Validator and Preview',
+          description: "Preview how your content will look when it's shared as Twitter cards and validate any issues with Meta and your Open Graph tags.",
+          images: [
+            {
+              url: 'https://socialvalidator.com/sc-validator-thubmnail.png',
+              width: 600,
+              height: 337.5,
+              alt: 'Social Validator Thumbnail',
+              type: 'image/jpeg',
+            },
+          ],
+        //  siteName: 'SiteName',
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+        }}
+        />
+
     <main>
       {/*style={{backgroundColor: '#0277bd'}}*/}
       <div className='h-screen-1/2 h-92 text-center flex flex-col justify-center py-6'>
@@ -141,19 +163,19 @@ export default function Home() {
 
         </div>
         <div className='pb-12 pt-6 w-full text-center'>
-          <p className='w-2/3 mx-auto text-lg font-normal'>Have a <span className='texl-xl' style={{color: '#6666FF'}}>Preview </span>at how your links will look like when shared on <span className='text-xl' style={{color: '#00ACEE'}}>Twitter</span>
+          <p className='w-2/3 mx-auto text-lg font-normal'>Have a <span className='texl-xl' style={{color: '#6666FF'}}>Preview </span>at how your content links will look like when shared on <span className='text-xl' style={{color: '#00ACEE'}}>Twitter</span>
           </p>
         </div>
       </div>
       <UrlBox handleMeta={handleMeta} handleReset={handleLogger} isloading={loading} />
-      <div className='my-10 flex justify-center'>
+      <div className='mt-10 flex justify-center'>
  
-      <Logs logs={logs} isURL={isValid} isAccess={isAccess} isTags={tagsFound} isTwitter={isTwitter} status={meta?.status as unknown as string} card={meta?.twitter_card as unknown as string} tagsNumber={meta?.no_of_tags as unknown as number} logger={logger} />
+      <Logs logs={logs} />
       </div>
 
       {isCardDataReady ? (
       <>
-      <div className='my-12' id='card'>
+      <div className='py-12' id='card'>
       
       <TwitterCard meta={meta as unknown as metaData}/>
 

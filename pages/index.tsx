@@ -1,11 +1,37 @@
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 
 export default function Page() {
 
+    const { asPath } = useRouter();
 
     return (
         <>
+        <NextSeo 
+        title="Social Card Validator and Preview"
+        description="Preview how your content will look when shared on social media platforms and validate any issues with your meta tags."
+        canonical={`https://socialvalidator.com${asPath}`}
+        openGraph={{
+          url: `https://socialvalidator.com${asPath}`,
+          title: 'Social Card Validator and Preview',
+          description: 'Preview how your content will look when shared on social media platforms and validate any issues with your meta tags.',
+          images: [
+            {
+              url: 'https://socialvalidator.com/sc-validator-thubmnail.png',
+              width: 600,
+              height: 337.5,
+              alt: 'Social Validator Thumbnail',
+              type: 'image/jpeg',
+            },
+          ],
+        //  siteName: 'SiteName',
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+        }}
+        />
+
         <div className="flex flex-row justify-center text-center mt-24 mx-2 py-4">
         <p className="text-5xl md:text-8xl py-4 font-bold"><span className="text-light-social">Cross Platform Link Sharing Card</span> <span className="text-deep-purple">Validator</span></p>
         </div>

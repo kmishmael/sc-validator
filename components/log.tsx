@@ -1,14 +1,5 @@
-import { logChecker } from "@sc-validator/types";
 
 type Props = {
-    isURL: boolean | undefined;
-    isAccess: boolean | undefined;
-    isTags: boolean | undefined;
-    isTwitter: boolean | undefined;
-    logger: logChecker;
-    tagsNumber: Number | undefined;
-    status: string | undefined;
-    card: string | undefined;
     logs: log[];
 }
 
@@ -18,7 +9,7 @@ type log = {
   }
 
   
-export function Logs({isURL, isAccess, isTwitter, isTags, logger, tagsNumber, status, card, logs}: Props){
+export function Logs({logs}: Props){
     return (
         <>
         
