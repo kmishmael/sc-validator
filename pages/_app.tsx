@@ -3,6 +3,7 @@ import Layout from '@sc-validator/components/Layout';
 import { AppProps } from "next/app";
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
+import { Analytics } from '@vercel/analytics/react';
 
 export default function App({Component, pageProps}: AppProps){
     return (
@@ -23,6 +24,7 @@ export default function App({Component, pageProps}: AppProps){
         <ThemeProvider enableSystem={true} attribute="class">
             <Layout>
                 <Component {...pageProps} />
+                <Analytics />
             </Layout>
         </ThemeProvider>
         </>

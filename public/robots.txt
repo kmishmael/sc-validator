@@ -1,0 +1,4 @@
+# Hey Robots, be nice.
+User-agent: *
+Disallow: 
+Sitemap: https://socialvalidator.com/sitemap.xml
