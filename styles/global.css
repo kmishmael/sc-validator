@@ -31,3 +31,30 @@ html {
   top:-0.14em;
   left:0px;
 }
+
+
+.twitter-button{
+  text-align: center;
+  transition: all 0.5s;
+}
+
+.twitter-button:after{
+  content: '';
+  position: absolute;
+  opacity: 0;
+  right: -20px;
+  transition: 0.5s;
+  font-weight: 600;
+  font-size: larger;
+}
+
+.twitter-button:hover{
+  padding-right: 24px;
+  padding-left: 8px;
+}
+
+.twitter-button:hover::after{
+  opacity: 1;
+  right: 10px;
+}
+

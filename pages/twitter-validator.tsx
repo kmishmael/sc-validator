@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import { UrlBox } from '@sc-validator/components/urlBox'
 import { useState } from 'react'
@@ -29,10 +28,6 @@ const initialLogState: logChecker = {
 export default function Home() {
 
   const [meta, setMeta] = useState<metaData>();
-  const [isValid, setIsValid] = useState<boolean>();
-  const [isAccess, setIsAccess] = useState<boolean>();
-  const [tagsFound, setTagsFound] = useState<boolean>();
-  const [isTwitter, setIsTwitter] = useState<boolean>();
   const [isCardDataReady, setIsCardDataReady] = useState<boolean>();
   const [loading, setLoading] = useState<boolean>(false);
   const { push, asPath } = useRouter()
@@ -141,7 +136,7 @@ export default function Home() {
           description: "Preview how your content will look when it's shared as Twitter cards and validate any issues with Meta and your Open Graph tags.",
           images: [
             {
-              url: 'https://socialvalidator.com/sc-validator-thubmnail.png',
+              url: 'https://socialvalidator.com/sc-validator-thumbnail.png',
               width: 600,
               height: 337.5,
               alt: 'Social Validator Thumbnail',

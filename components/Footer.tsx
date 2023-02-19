@@ -7,7 +7,7 @@ export function Footer(){
             <div className="links">
                 <ul className="flex justify-center gap-12">
                     <li>
-                        <Link href="/" className="relative">Twitter <span className="absolute left-full bottom-1/2 font-medium text-xs text-blue-700">BETA</span></Link>
+                        <Link href="/twitter-validator" className="relative">Twitter <span className="absolute left-full bottom-1/2 font-medium text-xs text-blue-700">BETA</span></Link>
                     </li>
                     <li>
                         <a href="" className="relative">Facebook <span className="absolute left-full bottom-1/2 font-medium text-xs text-blue-700">ALPHA</span></a>
