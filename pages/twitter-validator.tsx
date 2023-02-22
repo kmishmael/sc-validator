@@ -61,7 +61,10 @@ export default function Home() {
 
       let res = await (await fetch(`/api/getMeta/urlParser?url=${query}`)).json();
 
+      console.log(res)
       setMeta(res);
+
+      
 
       if (res.status == 200){
         

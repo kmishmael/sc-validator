@@ -9,8 +9,8 @@ export default async (req: any, res: any) => {
     if(isValidUrl(url)){
 
 
-        let data = await (await fetch(`https://us-central1-scvalidator.cloudfunctions.net/urlParser?url=${url}`)).json();
-
+        let data = await (await fetch(`https://us-central1-scvalidator.cloudfunctions.net/UrlParser?url=${url}`)).json();
+        
         res.json(data)
     } 
    }
