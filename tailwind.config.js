@@ -13,7 +13,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'sans': ['Segoe UI', 'Inter', ...defaultTheme.fontFamily.sans],
+      'sans': ['var(--font-inter)', ...defaultTheme.fontFamily.sans],
     },
     extend: {
       colors: {

@@ -5,16 +5,16 @@ export function Footer(){
         <>
         <footer className="border-t border-slate-300 dark:border-slate-700 w-full mt-auto py-4">
             <div className="links">
-                <ul className="flex justify-center gap-12">
+                <ul className="flex justify-center gap-12 flex-wrap">
                     <li>
-                        <Link href="/twitter-validator" className="relative">Twitter <span className="absolute left-full bottom-1/2 font-medium text-xs text-blue-700">BETA</span></Link>
+                        <Link href="/twitter-validator" className="relative text-base">Twitter <span className="absolute left-full bottom-1/2 font-medium text-xs text-blue-700">BETA</span></Link>
                     </li>
                     <li>
-                        <a href="" className="relative">Facebook <span className="absolute left-full bottom-1/2 font-medium text-xs text-blue-700">ALPHA</span></a>
+                        <a href="" className="relative text-base">Facebook <span className="absolute left-full bottom-1/2 font-medium text-xs text-blue-700">ALPHA</span></a>
                         
                     </li>
                     <li>
-                        <a href="" className="relative">LinkedIn <span className="absolute left-full bottom-1/2 text-xs font-medium text-blue-700">ALPHA</span></a>
+                        <a href="" className="relative text-base">LinkedIn <span className="absolute left-full bottom-1/2 text-xs font-medium text-blue-700">ALPHA</span></a>
                     </li>
                     <li>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdWW2TPrf6RzfupWkd6xVSsCyHerEOenOTHVYayrxkySl0LNQ/viewform?usp=sf_link">FeedbackHub</a></li>

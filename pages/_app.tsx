@@ -4,6 +4,12 @@ import { AppProps } from "next/app";
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 import { Analytics } from '@vercel/analytics/react';
+import { Inter } from '@next/font/google'
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
 
 export default function App({Component, pageProps}: AppProps){
     return (
@@ -22,10 +28,13 @@ export default function App({Component, pageProps}: AppProps){
 
         </Head>
         <ThemeProvider enableSystem={true} attribute="class">
-            <Layout>
-                <Component {...pageProps} />
-                <Analytics />
-            </Layout>
+            
+            <div className={`${inter.variable} font-sans`}>
+                <Layout>
+                    <Component {...pageProps} />
+                    <Analytics />
+                </Layout>
+            </div>
         </ThemeProvider>
         </>
     )
